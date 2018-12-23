@@ -1,9 +1,9 @@
 import React from 'react';
-import { configure, shallow, mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import TodosContainer from './TodosContainer';
-import Adapter from 'enzyme-adapter-react-16';
+import Todos from '../components/Todos';
 
-configure({ adapter: new Adapter() });
+jest.mock('../../api/');
 
 describe('TodosContainer', () => {
   test('renders', () => {
