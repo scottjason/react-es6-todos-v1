@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import GlobalStyles, { Container } from './App.style.js';
-import Todos from './components/Todos/Todos';
+import TodosContainer from './containers/TodosContainer';
 
 /* initial stub data */
 import stub from './stub';
@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <Container>
         <GlobalStyles />
-        <Todos todos={stub.todos} />
+        <TodosContainer />
       </Container>
     );
   }

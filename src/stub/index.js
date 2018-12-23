@@ -1,8 +1,8 @@
-/* Initial Todos stub data */
-import uuidv4 from 'uuid/v4';
 import faker from 'faker';
 
-const createRandId = () => uuidv4()
+/* Initial Todos stub data */
+
+const createRandId = () => faker.random.uuid();
 const createRandText = () => faker.lorem.sentence();
 
 const stub = {
