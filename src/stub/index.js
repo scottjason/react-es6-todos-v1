@@ -5,8 +5,8 @@ import faker from 'faker';
 const createRandId = () => uuidv4()
 const createRandText = () => faker.lorem.sentence();
 
-const stubTodos = {
-  data: [
+const stub = {
+  todos: [
     {id: createRandId(), text: createRandText()},
     {id: createRandId(), text: createRandText()},
     {id: createRandId(), text: createRandText()},
@@ -24,4 +24,4 @@ const stubTodos = {
   ]
 }
 
-export default stubTodos;
+export default stub;

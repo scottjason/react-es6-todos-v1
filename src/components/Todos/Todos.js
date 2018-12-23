@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
+import { Container } from './Todos.style';
+import Todo from '../Todo/Todo';
 
 class Todos extends Component {
   render() {
-    console.log('render in todos', this.props)
-    return <div />
+    return(
+      <Container>
+        {this.props.todos.map(todo => {
+          return(
+            <Todo
+              key={todo.id}
+              text={todo.text}
+            />
+          );
+        })}
+      </Container>
+    )
   }
 }
 
