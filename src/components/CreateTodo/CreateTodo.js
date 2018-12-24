@@ -9,7 +9,7 @@ const CreateTodo = props => {
   const currentInputVal = () => todoInput.current.value;
   const onSubmit = e => {
     e.preventDefault();
-    props.onSubmit(currentInputVal())
+    props.onCreateTodo(currentInputVal())
   };
   
   return(

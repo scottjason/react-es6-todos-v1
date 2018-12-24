@@ -5,15 +5,23 @@ import faker from 'faker';
 const createRandId = () => faker.random.uuid();
 const createRandText = () => faker.lorem.sentence();
 
-let i = 0;
-let count = 10;
-let stub = {todos: []}
-
-while(i < count) {
+let stub = {todos: []};
+let exponent = 1;
+let generateTodos = stub => {
+  exponent++
   stub.todos.push(
-    {id: createRandId(), text: createRandText()}
-  )
-  i++
+    {
+      id: createRandId(),
+      text: createRandText(),
+      createdAt: Date.now() ** exponent,
+    },
+  );
+  if (stub.todos.length < 10) {
+    return generateTodos(stub)
+  } else {
+    return stub;
+  }
 }
 
-export default stub;
+
+export default generateTodos(stub);
