@@ -7,9 +7,11 @@ const CreateTodo = props => {
   */
   let todoInput = React.createRef();
   const currentInputVal = () => todoInput.current.value;
+  const resetCurrentInputVal = () => todoInput.current.value = '';
   const onSubmit = e => {
     e.preventDefault();
-    props.onCreateTodo(currentInputVal())
+    props.onCreateTodo(currentInputVal());
+    resetCurrentInputVal();
   };
   
   return(
