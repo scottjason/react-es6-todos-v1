@@ -6,17 +6,17 @@ import { fetchTodos } from '../api';
 import stub from '../stub';
 
 class TodosContainer extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       todos: [],
     };
   }
-  componentDidMount() {
-    fetchTodos(stub).then(res=> {
+  componentWillMount() {
+    fetchTodos(stub).then(res => {
       let todos = res.todos;
       this.setState({ todos })
-    });
+    })
   }
   render() {
     return(
