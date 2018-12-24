@@ -12,8 +12,9 @@ class Todos extends Component {
         {this.props.todos.sort(this.sortByMostRecent).map(todo => {
           return(
             <Todo
+              todo={todo}
               key={todo.id}
-              text={todo.text}
+              onDeleteTodo={this.props.onDeleteTodo}
             />
           );
         })}

@@ -43,11 +43,21 @@ class TodosContainer extends Component {
     todos.push(todo);
     this.setState({todos});
   } 
+  onDeleteTodo = todo => {
+    let todos = this.state.todos;
+    todos = todos.filter(td => td.id !== todo.id);
+    this.setState({todos});
+  }
   render() {
     return(
       <React.Fragment>
-        <CreateTodo onCreateTodo={todo => this.onCreateTodo(todo)} />
-        <Todos todos={this.state.todos} />
+        <CreateTodo 
+          onCreateTodo={todo=> this.onCreateTodo(todo)}
+        />
+        <Todos
+          todos={this.state.todos}
+          onDeleteTodo={todo=> this.onDeleteTodo(todo)}
+        />
       </React.Fragment>
     )
   }

@@ -1,9 +1,10 @@
 import React from 'react';
-import { Container } from './Todo.style';
+import { Container, Text, Delete } from './Todo.style';
 
-const Todo = ({ text }) => (
+const Todo = ({ todo, onDeleteTodo }) => (
   <Container>
-    <p>{text}</p>
+    <Text>{todo.text}</Text>
+    <Delete onClick={()=> onDeleteTodo(todo)}>X</Delete>
   </Container>
 )
 
