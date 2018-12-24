@@ -6,9 +6,12 @@ class CreateTodoContainer extends Component {
     super();
     this.state = {};
   }
+  onSubmit = text => {
+    console.log('text', text)
+  }
   render() {
     return(
-      <CreateTodo />
+      <CreateTodo onSubmit={this.onSubmit} />
     )
   }
 }
