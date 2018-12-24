@@ -4,7 +4,7 @@ import { Container, Delete, Update, Input, Form } from './Todo.style';
 class Todo extends Component {
   
   constructor(props) {
-    super();
+    super(props);
     const { id, text } = props.todo;
     const isEditMode = props.isEditMode;
     this.state = { id, text, isEditMode };

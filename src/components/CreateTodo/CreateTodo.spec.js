@@ -4,26 +4,54 @@ import CreateTodo from './CreateTodo';
 
 const createRandId = () => faker.random.uuid();
 
-describe('CreateTodo', () => {
+/**
+ *
+ * Unit Testing
+ *
+*/
 
-  test('it should exist', () => {
-    let wrapper = mount(<CreateTodo />);
+describe('CreateTodo', () => {
+  
+  let wrapper, input;
+  
+  beforeEach(() => {
+    wrapper = mount(<CreateTodo />);
+    input = wrapper.find('input').first();
+  });
+  
+  /**
+  * High-Level Checks
+  */
+  test('it should have a form and and an input', () => {
     expect(wrapper.find('form')).toExist();
     expect(wrapper.find('input')).toExist();
   });
-
-  test('should have exatly one input', ()=> {
-    let wrapper = mount(<CreateTodo />);
-    expect(wrapper).toContainExactlyOneMatchingElement('input');
-  })
   
-  test('input should have default value of empty string', () => {
-    let wrapper = mount(<CreateTodo />);
-    expect(wrapper.find('input').at(0)).toHaveValue('');
+  test('should have exactly one form', ()=> {
+    expect(wrapper).toContainExactlyOneMatchingElement('form');
+  });
+ 
+ test('should have exactly one input', ()=> {
+    expect(wrapper).toContainExactlyOneMatchingElement('input');
   });
   
-  test('should have an on onSubmit prop method', () => {
-    let wrapper = shallow(<CreateTodo />);
-    expect(wrapper.props().children.props.onSubmit).toBeInstanceOf(Function);
+
+  /**
+  * Input Field
+  */
+  test('should have exatly one input', ()=> {
+    expect(wrapper).toContainExactlyOneMatchingElement('input');
+  });
+  
+  test('input should have correct defaultValue', () => {
+    expect(input.props().defaultValue).toEqual('')
+  });
+  
+  test('input should have correct placeholder', () => {
+    expect(input.props().placeholder).toEqual('create todo...')
+  });
+ 
+  test('input should have correct type', () => {
+    expect(input.props().type).toEqual('text')
   });
 });

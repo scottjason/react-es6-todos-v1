@@ -6,6 +6,9 @@ exports[`TodosContainer renders correctly with no props 1`] = `
     onCreateTodo={[Function]}
   />
   <Todos
+    onDeleteTodo={[Function]}
+    onSaveUpdatedTodo={[Function]}
+    onToggleUpdate={[Function]}
     todos={Array []}
   />
 </Fragment>

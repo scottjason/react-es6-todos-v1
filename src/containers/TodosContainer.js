@@ -12,7 +12,7 @@ class TodosContainer extends Component {
   _isMounted = false;
   
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       todos: [],
     };
