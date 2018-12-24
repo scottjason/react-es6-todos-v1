@@ -8,17 +8,27 @@ import faker from 'faker';
 import stub from '../stub';
 
 class TodosContainer extends Component {
+
+  _isMounted = false;
+  
   constructor(props) {
     super();
     this.state = {
       todos: [],
     };
   }
-  componentWillMount() {
+  componentDidMount() {
+    this._isMounted = true;
+
     fetchTodos(stub).then(data => {
       let todos = data.todos;
-      this.setState({ todos })
+      if (this._isMounted) {
+        this.setState({ todos })
+      }
     });
+  }
+  componentWillUnmount() {
+    this._isMounted = false;
   }
   createRandId() {
     return faker.random.uuid();
