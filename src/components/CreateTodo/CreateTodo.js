@@ -16,6 +16,7 @@ const CreateTodo = props => {
     <Container>
       <Form onSubmit={onSubmit}>
         <Input
+          defaultValue={''}
           ref={todoInput}
           type={'text'}
           placeholder='create todo...'
