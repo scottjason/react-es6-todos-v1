@@ -5,23 +5,15 @@ import faker from 'faker';
 const createRandId = () => faker.random.uuid();
 const createRandText = () => faker.lorem.sentence();
 
-const stub = {
-  todos: [
-    {id: createRandId(), text: createRandText()},
-    {id: createRandId(), text: createRandText()},
-    {id: createRandId(), text: createRandText()},
-    {id: createRandId(), text: createRandText()},
-    {id: createRandId(), text: createRandText()},
-    {id: createRandId(), text: createRandText()},
-    {id: createRandId(), text: createRandText()},
-    {id: createRandId(), text: createRandText()},
-    {id: createRandId(), text: createRandText()},
-    {id: createRandId(), text: createRandText()},
-    {id: createRandId(), text: createRandText()},
-    {id: createRandId(), text: createRandText()},
-    {id: createRandId(), text: createRandText()},
-    {id: createRandId(), text: createRandText()},
-  ]
+let i = 0;
+let count = 10;
+let stub = {todos: []}
+
+while(i < count) {
+  stub.todos.push(
+    {id: createRandId(), text: createRandText()}
+  )
+  i++
 }
 
 export default stub;
