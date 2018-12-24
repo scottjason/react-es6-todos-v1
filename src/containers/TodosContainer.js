@@ -50,7 +50,8 @@ class TodosContainer extends Component {
       createdAt: Date.now(),
     };
     let todos = this.state.todos;
-    todos = todos.push(todo).sort(this.sortByMostRecent);
+    todos.push(todo);
+    todos = todos.sort(this.sortByMostRecent);
     this.setState({todos});
   } 
   onDeleteTodo = todo => {
