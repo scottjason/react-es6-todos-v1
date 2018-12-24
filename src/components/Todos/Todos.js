@@ -14,7 +14,10 @@ class Todos extends Component {
             <Todo
               todo={todo}
               key={todo.id}
+              isEditMode={todo.isEditMode}
               onDeleteTodo={this.props.onDeleteTodo}
+              onToggleUpdate={this.props.onToggleUpdate}
+              onSaveUpdatedTodo={this.props.onSaveUpdatedTodo}
             />
           );
         })}
