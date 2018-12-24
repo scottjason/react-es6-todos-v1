@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import TodosContainer from './TodosContainer';
-import Todos from '../components/Todos/Todos';
-import stub from '../stub';
-import { fetchTodos } from '../api';
+import Todos from '../../components/Todos/Todos';
+import stub from '../../stub';
+import { fetchTodos } from '../../api';
 
 describe('TodosContainer', () => {
   
@@ -18,7 +18,7 @@ describe('TodosContainer', () => {
   test('it should render one Todos component', () => {
     
     /* mount, includes children */
-    let wrapper = shallow(<TodosContainer />);
+    let wrapper = mount(<TodosContainer />);
     return fetchTodos(stub).then(() => {
       expect(wrapper.children(Todos).length).toEqual(1);
     });

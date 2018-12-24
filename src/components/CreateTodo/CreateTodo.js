@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Form, Container } from './CreateTodo.style';
 
-const CreateTodo = (props) => {
+const CreateTodo = props => {
   /**
   * Input must be declared here so the ref can refer to it
   */
