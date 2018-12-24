@@ -1,7 +1,10 @@
 import React from 'react';
+import { Container } from './Todo.style';
 
 const Todo = ({ text }) => (
-  <p>{text}</p>
+  <Container>
+    <p>{text}</p>
+  </Container>
 )
 
 export default Todo;

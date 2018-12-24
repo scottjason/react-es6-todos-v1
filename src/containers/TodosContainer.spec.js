@@ -20,7 +20,7 @@ describe('TodosContainer', () => {
     /* mount, includes children */
     let wrapper = shallow(<TodosContainer />);
     return fetchTodos(stub).then(() => {
-      expect(wrapper.children(Todos).length).toEqual(1)
+      expect(wrapper.children(Todos).length).toEqual(1);
     });
   });
 });

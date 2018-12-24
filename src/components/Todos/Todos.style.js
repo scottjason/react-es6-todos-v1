@@ -3,11 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.div`
   position: relative;
   margin: 0 auto;
-  width: 70%;
-  max-width: 600px;
+  width: auto;
   height: auto;
+  max-width: 600px;
   padding: 20px;
-  background-color: red;
-  font-size: 1.4rem;
-  color: white;
+  background-color: rgba(0, 0, 0, .4);
+  border: 1px solid rgba(225, 225, 225, .6);
 `;

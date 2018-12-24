@@ -16,13 +16,13 @@ class TodosContainer extends Component {
     fetchTodos(stub).then(res => {
       let todos = res.todos;
       this.setState({ todos })
-    })
+    });
   }
   render() {
     return(
-      <div>
+      <React.Fragment>
         <Todos todos={this.state.todos} />
-      </div>
+      </React.Fragment>
     )
   }
 }
