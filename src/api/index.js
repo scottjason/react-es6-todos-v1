@@ -3,9 +3,9 @@ import stub from '../stub';
 
 /* extract this method from container for testing purposes */
 
-export const fetchTodos = (stub=stub) => {
+export const fetchTodos = (data=stub) => {
   return Promise.resolve({
-    todos: stub.todos,
+    todos: data.todos,
   });
 };
 

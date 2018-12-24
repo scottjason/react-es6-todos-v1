@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Input = styled.input`
   position: relative;
-  margin: 5px auto;
-  width: 100%;
-  height: auto;
+  width: 200px;
+  height: 45px;
   padding: 20px;
   font-size: 1.2rem;
   color: white;
-  box-sizing: border-box;
   background-color: rgba(0, 0, 0, .7);
   border: 1px solid rgba(225, 225, 225, .6);
+  outline: 0;
 `;

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Todos from '../components/Todos/Todos';
-import { fetchTodos } from '../api';
+import Todos from '../../components/Todos/Todos';
+import { fetchTodos } from '../../api';
 
 /* initial stub data */
-import stub from '../stub';
+import stub from '../../stub';
 
 class TodosContainer extends Component {
   constructor(props) {
@@ -13,16 +13,14 @@ class TodosContainer extends Component {
     };
   }
   componentWillMount() {
-    fetchTodos(stub).then(res => {
-      let todos = res.todos;
+    fetchTodos(stub).then(data => {
+      let todos = data.todos;
       this.setState({ todos })
     });
   }
   render() {
     return(
-      <React.Fragment>
-        <Todos todos={this.state.todos} />
-      </React.Fragment>
+      <Todos todos={this.state.todos} />
     )
   }
 }
