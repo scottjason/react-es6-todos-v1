@@ -37,6 +37,11 @@ class TodosContainer extends Component {
   createRandId() {
     return faker.random.uuid();
   }
+  
+  sortByMostRecent(x, y) {
+    return x.createdAt - y.createdAt;
+  }
+  
   onCreateTodo = text => {
     let todo = {
       id: this.createRandId(),
@@ -45,7 +50,7 @@ class TodosContainer extends Component {
       createdAt: Date.now(),
     };
     let todos = this.state.todos;
-    todos.push(todo);
+    todos = todos.push(todo).sort(this.sortByMostRecent);
     this.setState({todos});
   } 
   onDeleteTodo = todo => {
@@ -67,11 +72,11 @@ class TodosContainer extends Component {
   onSaveUpdatedTodo = todo => {
     let todos = this.state.todos.map(td=> {
       if(td.id === todo.id) {
-        td.text = todo.text
+        td.text = todo.text;
       }
       td.isEditMode = false;
       return td;
-    });
+    }).sort(this.sortByMostRecent);
     this.setState({todos});
   }
   render() {
