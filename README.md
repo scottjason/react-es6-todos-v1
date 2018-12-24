@@ -3,9 +3,10 @@
 
 Todos built w/:
  - React, ES6
- - Jest, Enzyme, Enzyme Adapter React 16
+ - Unit Testing w/ Jest, Enzyme
  - Container / Component Pattern
  - Styled Components
+
 
 ### Installing
 
@@ -20,7 +21,12 @@ yarn && yarn start
 ```
 
 Test:
-`yarn test`
+```
+yarn test 
+```
+Add `--verbose` flag to `test` key in `package.json` for more detailed logs.
+
+
 
 ![
 ](https://s3-us-west-1.amazonaws.com/sj-portfolio/todos-react-es6.png)

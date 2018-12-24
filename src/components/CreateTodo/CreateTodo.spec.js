@@ -12,12 +12,19 @@ const createRandId = () => faker.random.uuid();
 
 describe('CreateTodo', () => {
   
-  let wrapper, input;
+  let wrapper, input, componentInstance;
   
   beforeEach(() => {
-    wrapper = mount(<CreateTodo />);
+    wrapper = mount(<CreateTodo />)
+    componentInstance = wrapper.childAt(0);
     input = wrapper.find('input').first();
   });
+
+  const createShallowWrapper = () => {
+    wrapper = shallow(<CreateTodo />)
+    componentInstance = wrapper.childAt(0);
+    input = wrapper.find('input').first();
+  };
   
   /**
   * High-Level Checks
@@ -53,5 +60,11 @@ describe('CreateTodo', () => {
  
   test('input should have correct type', () => {
     expect(input.props().type).toEqual('text')
+  });
+
+  test('input value should correctly handle change', () => {
+    input.instance().value = 'hello'
+    input.simulate('change');
+    expect(input.instance().value).toEqual('hello');
   });
 });
