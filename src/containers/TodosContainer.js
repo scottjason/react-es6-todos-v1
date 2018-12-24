@@ -27,6 +27,7 @@ class TodosContainer extends Component {
           todo.isEditMode = false
           return todo;
         })
+        todos = todos.sort(this.sortByMostRecent);
         this.setState({ todos })
       }
     });

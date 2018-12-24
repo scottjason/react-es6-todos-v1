@@ -6,24 +6,34 @@ class Todo extends Component {
   constructor(props) {
     super();
     const { id, text } = props.todo;
-    this.state = { id, text };
+    const isEditMode = props.isEditMode;
+    this.state = { id, text, isEditMode };
   }
-  onSubmit(e){
+  componentDidUpdate(prevProps) {
+    let isChange = prevProps.isEditMode !== this.props.isEditMode;
+    if (isChange) {
+      this.setState({ isEditMode: !this.state.isEditMode })
+    }
+  }
+  onSubmit = e => {
     e && e.preventDefault();
     let targetId = this.state.id;
     let newTodo = {...this.props.todo};
     newTodo.text = this.state.text;
     this.props.onSaveUpdatedTodo(newTodo);
-    this.setState({});
+  }
+  onChange = e => {
+    this.setState({ text: e.currentTarget.value })
   }
   render() {
     return(
       <Container>
-        <Form onSubmit={e => this.onSubmit(e)}>
+        <Form onSubmit={this.onSubmit}>
           <Input
-            isEditMode={this.props.isEditMode}
-            readOnly={!this.props.isEditMode}
-            defaultValue={this.state.text}
+            isEditMode={this.state.isEditMode}
+            readOnly={!this.state.isEditMode}
+            value={this.state.text}
+            onChange={this.onChange}
           />
         </Form>
         <Delete onClick={()=> this.props.onDeleteTodo(this.props.todo)}>X</Delete>
