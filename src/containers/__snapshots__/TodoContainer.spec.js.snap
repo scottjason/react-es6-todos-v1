@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodosContainer renders correctly with no props 1`] = `
+<Fragment>
+  <CreateTodo
+    onCreateTodo={[Function]}
+  />
+  <Todos
+    todos={Array []}
+  />
+</Fragment>
+`;
